@@ -1,0 +1,35 @@
+{
+  "name": "test262-mocha-adapter",
+  "version": "1.0.0",
+  "description": "Adapter to run test262 tests under mocha",
+  "main": "lib/adapter.js",
+  "scripts": {
+    "test": "mocha",
+    "cover": "istanbul cover --root lib --print=both -- node_modules/mocha/bin/_mocha",
+    "lint": "./node_modules/.bin/jslint --terse lib/*.js test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smikes/test262-mocha-adapter.git"
+  },
+  "keywords": [
+    "test262",
+    "ec39",
+    "unittest",
+    "es6"
+  ],
+  "author": "Sam Mikes",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/smikes/test262-mocha-adapter/issues"
+  },
+  "homepage": "https://github.com/smikes/test262-mocha-adapter",
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "jslint": "^0.6.2",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "test262-parser": "^1.1.2"
+  }
+}
