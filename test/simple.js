@@ -6,7 +6,7 @@
 var assert = require('assert'),
     adapter = require('..'),
     Mocha = require('mocha'),
-    mocha = new Mocha();
+    mocha;
 
 describe('overview', function () {
     it('loads the test suite and runs a test', function () {
@@ -14,21 +14,13 @@ describe('overview', function () {
     });
 });
 
-describe('simple test', function () {
-    Mocha.interfaces.test262 = adapter.test262;
-    mocha.ui('test262');
+Mocha.interfaces.test262 = adapter.test262;
 
-    mocha.files = ['test/fixtures/S7.6_A1.2_T1.js'];
+mocha = new Mocha();
+mocha.ui('test262');
+mocha.loadFiles = adapter.loadFiles;
 
-    mocha.run();
-});
+mocha.files = ['test/fixtures/S7.6_A1.2_T1.js',
+               'test/fixtures/dumb-async.js'];
 
-describe('async test', function () {
-    Mocha.interfaces.test262 = adapter.test262;
-    mocha.ui('test262');
-
-    mocha.files = ['test/fixtures/S25.4.4.1_A2.3_T3.js'];
-
-    mocha.run();
-});
-
+mocha.run();
