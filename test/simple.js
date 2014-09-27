@@ -22,3 +22,13 @@ describe('simple test', function () {
 
     mocha.run();
 });
+
+describe('async test', function () {
+    Mocha.interfaces.test262 = adapter.test262;
+    mocha.ui('test262');
+
+    mocha.files = ['test/fixtures/S25.4.4.1_A2.3_T3.js'];
+
+    mocha.run();
+});
+
