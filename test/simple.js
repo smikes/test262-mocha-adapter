@@ -6,22 +6,16 @@
 var assert = require('assert'),
     adapter = require('..'),
     Mocha = require('mocha'),
-    mocha = new Mocha(),
-    test262Bdd;
+    mocha = new Mocha();
 
 it('loads the test suite and runs a test', function () {
     adapter();
     assert.ok(true);
 });
 
-test262Bdd = function (suite) {
-    suite.on('pre-require', function (context, file, mocha) {
+Mocha.interfaces['test262'] = adapter.test262;
+mocha.ui('test262');
 
-        context.it = function (title, fn) {
-        };
-    });
-};
+mocha.files = ['test/fixtures/S7.6_A1.2_T1.js'];
 
-Mocha.interfaces['test262-bdd'] = test262Bdd;
-mocha.ui('test262-bdd');
-
+mocha.run();
