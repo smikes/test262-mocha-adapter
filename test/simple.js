@@ -3,10 +3,7 @@
 /*global it, describe*/
 'use strict';
 
-var assert = require('assert'),
-    adapter = require('..'),
-    Mocha = require('mocha'),
-    mocha;
+var assert = require('assert');
 
 describe('overview', function () {
     it('loads the test suite and runs a test', function () {
@@ -14,13 +11,3 @@ describe('overview', function () {
     });
 });
 
-Mocha.interfaces.test262 = adapter.test262;
-
-mocha = new Mocha();
-mocha.ui('test262');
-mocha.loadFiles = adapter.loadFiles;
-
-mocha.files = ['test/fixtures/S7.6_A1.2_T1.js',
-               'test/fixtures/dumb-async.js'];
-
-mocha.run();
