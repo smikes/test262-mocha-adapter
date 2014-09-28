@@ -4,8 +4,8 @@
   "description": "Adapter to run test262 tests under mocha",
   "main": "lib/adapter.js",
   "scripts": {
-    "test": "mocha",
-    "cover": "istanbul cover --root lib --print=both -- node_modules/mocha/bin/_mocha",
+    "test": "./run-test",
+    "cover": "istanbul cover --root lib --print=both -- test.js",
     "lint": "./node_modules/.bin/jslint --terse lib/*.js test/*.js"
   },
   "repository": {

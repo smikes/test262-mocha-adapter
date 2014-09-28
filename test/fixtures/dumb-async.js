@@ -11,6 +11,6 @@ es5id: 25.4.4.1_A2.3_T3
 author: Sam Mikes
 ---*/
 
-setTimeout(function () {
+nextTick(function () {
     $DONE();
-}, 100);
+});
